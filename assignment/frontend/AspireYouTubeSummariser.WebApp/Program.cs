@@ -15,8 +15,10 @@ builder.Services.AddRazorComponents()
 builder.Services.AddHttpClient<IApiAppClient, ApiAppClient>(p => p.BaseAddress = new Uri("https+http://apiapp"));
 
 var app = builder.Build();
-app.MapDefaultEndpoints();
+
 app.UseOutputCache();
+
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
